@@ -6,6 +6,7 @@
 // You may not alter or remove any copyright or other notice from copies of this content.
 import ballerina/http;
 import ballerina/log;
+import ballerina/lang.runtime;
 
 service / on new http:Listener(8090) {
     resource function get [string departmentId](http:Caller caller) returns error? {
