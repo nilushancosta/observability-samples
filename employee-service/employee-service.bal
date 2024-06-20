@@ -18,6 +18,7 @@ http:Client departmentService = check new (DEPARTMENT_SERVICE_URL);
 
 service / on new http:Listener(8090) {
     resource function get employee/[string employeeId](http:Caller caller) returns error? {
+        log:printInfo("Received a request to fetch employee details of employee " + employeeId);
         http:Response hrServiceResponse = <http:Response>check hrService->get("/" + employeeId);
         if (hrServiceResponse.statusCode == http:STATUS_NOT_FOUND) {
             log:printWarn("employee information not found in the hr-service");

@@ -10,7 +10,7 @@ import ballerina/log;
 
 service / on new http:Listener(8090) {
     resource function get [string employeeId](http:Caller caller) returns error? {
-        runtime:sleep(1);
+        log:printInfo("Received a request to fetch employee details of employee " + employeeId);
         if (employeeId.equalsIgnoreCaseAscii("2")) {
             runtime:sleep(3);
         } else if (employeeId.equalsIgnoreCaseAscii("500")) {

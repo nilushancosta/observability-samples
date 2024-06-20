@@ -10,6 +10,7 @@ import ballerina/lang.runtime;
 
 service / on new http:Listener(8090) {
     resource function get [string departmentId](http:Caller caller) returns error? {
+        log:printInfo("Received a request to fetch department details of department " + departmentId);
         map<json> departments = {
             "1": {id: "1", name: "Finance"},
             "2": {id: "2", name: "Marketing"},
