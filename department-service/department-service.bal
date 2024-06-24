@@ -27,7 +27,7 @@ service / on new http:Listener(8090) {
                 log:printError("responding to client failed", 'error = ret);
             }
         } else {
-            # Sleep for 1 second
+            // Sleep for 1 second
             runtime:sleep(10);
             error? ret = caller->respond(department);
             if (ret is error) {
